@@ -5,6 +5,8 @@ class LLNode {
   }
 }
 
+// Many of these method names align with Java.
+// https://www.geeksforgeeks.org/linked-list-in-java/
 export class SinglyLinkedList {
   constructor() {
     this.head = null;
@@ -36,7 +38,7 @@ export class SinglyLinkedList {
    * @param {string|number} data A value to store in the new node.
    * @return {LLNode} The head of the linked list.
    */
-  add(data) {
+   addLast(data) {
     let newNode = new LLNode(data);
     // If the list is empty, then the first node is the head.
     if(!this.head) {
@@ -50,5 +52,36 @@ export class SinglyLinkedList {
     }
     current.next = newNode;
     return this.head
+  }
+
+  /**
+   * Adds a node to the linked list at a specific position by index.
+   *
+   * @param {number} index A value to store in the new node.
+   * @param {string|number} data A value to store in the new node.
+   * @return {LLNode} The head of the linked list.
+   */
+  add(index, data) {
+    // If the index is zero then use the addFirst method.
+    if (index === 0) {
+      this.addFirst(data)
+      return this.head;
+    }
+
+    let newNode = new LLNode(data);
+    let current = this.head;
+    // Iterate through the linked list to arrive at the insertion point.
+    for (let i = 0; i < index - 1; i++) {
+      if (current.next == null) {
+        // Throw and error if the provided index is larger than the linked list.
+        throw 'Error: Provided index is too large for linked list.';
+      }
+      current = current.next;
+    }
+    // Connect the rest of the linked list to the new node.
+    newNode.next = current.next
+    // Connect new node to the previous part of the linked list.
+    current.next = newNode;
+    return this.head;
   }
 }
