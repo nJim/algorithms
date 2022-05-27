@@ -168,7 +168,7 @@ describe('linkedList', () => {
 
     // Test adding a node to the first position.
     list.addFirst('extra-cheese');
-    expect(list.getFirst()).toEqual('extra-cheese');
+    expect(list.getFirst().value).toEqual('extra-cheese');
   });
 
   // Test the getLast method.
@@ -184,6 +184,27 @@ describe('linkedList', () => {
     list.addFirst('extra-cheese');
     list.addLast('pepperoni');
     list.addLast('bacon');
-    expect(list.getLast()).toEqual('bacon');
+    expect(list.getLast().value).toEqual('bacon');
+  });
+
+  // Test the get method.
+  it('can get a value from the linked list by index', () => {
+    const list = new SinglyLinkedList();
+
+    // Getting the last value from an empty linked list throws an error
+    expect(() => { list.get(1); }).toThrow(
+      "Error: The linked list does not contain any nodes."
+    );
+
+    // Test adding a node to the first position.
+    list.addFirst('extra-cheese');
+    list.addLast('pepperoni');
+    list.addLast('bacon');
+    expect(list.get(1).value).toEqual('pepperoni');
+
+    // Getting the value at a invalid index throws an error.
+    expect(() => { list.get(10); }).toThrow(
+      "Error: A node does not exist at the given index."
+    );
   });
 });

@@ -57,7 +57,7 @@ export class SinglyLinkedList {
   /**
    * Adds a node to the linked list at a specific position by index.
    *
-   * @param {number} index A value to store in the new node.
+   * @param {number} index The position of the new node.
    * @param {string|number} data A value to store in the new node.
    * @return {LLNode} The head of the linked list.
    */
@@ -88,20 +88,20 @@ export class SinglyLinkedList {
   /**
    * Gets the value of the first node in the linked list.
    *
-   * @return {string|number} The value stored in the head of the linked list.
+   * @return {LLNode} The head node of the linked list.
    */
   getFirst() {
     if (this.head == null) {
       // Throw an error if the linked list does not contain any nodes.
       throw 'Error: The linked list does not contain any nodes.';
     }
-    return this.head.value;
+    return this.head;
   }
 
   /**
    * Gets the value of the last node in the linked list.
    *
-   * @return {string|number} The value stored in the tail of the linked list.
+   * @return {LLNode} The tail node of the linked list.
    */
   getLast() {
     if (this.head == null) {
@@ -112,6 +112,28 @@ export class SinglyLinkedList {
     while(current.next !== null) {
       current = current.next;
     }
-    return current.value;
+    return current;
+  }
+
+  /**
+   * Adds a node to the linked list at a specific position by index.
+   *
+   * @param {number} index A value to store in the new node.
+   * @return {LLNode} The given node of the linked list.
+   */
+  get(index) {
+    if (this.head == null) {
+      // Throw an error if the linked list does not contain any nodes.
+      throw 'Error: The linked list does not contain any nodes.';
+    }
+    let current = this.head;
+    for (let i=0; i < index; i++) {
+      if (current.next == null) {
+        // Throw an error if trying to get a value from an invalid index.
+        throw 'Error: A node does not exist at the given index.';
+      }
+      current = current.next;
+    }
+    return current;
   }
 }
