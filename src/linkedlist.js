@@ -36,7 +36,7 @@ export class SinglyLinkedList {
    * @param {string|number} data A value to store in the new node.
    * @return {LLNode} The head of the linked list.
    */
-  push(data) {
+  add(data) {
     let newNode = new LLNode(data);
     // If the list is empty, then the first node is the head.
     if(!this.head) {

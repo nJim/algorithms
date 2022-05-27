@@ -1,12 +1,12 @@
 import { SinglyLinkedList } from './linkedList';
 
-// Testing the push method.
+// Testing the add method.
 describe('linkedList', () => {
-  it('can push new nodes onto the end of a list', () => {
+  it('can add new nodes onto the end of a list', () => {
     const list = new SinglyLinkedList();
 
     // Test adding a single node to an empty linked list.
-    list.push('cheese');
+    list.add('cheese');
     expect(list).toMatchInlineSnapshot(`
       SinglyLinkedList {
         "head": LLNode {
@@ -17,7 +17,7 @@ describe('linkedList', () => {
     `);
 
     // Test adding a second node to a linked list with data.
-    list.push('sauce');
+    list.add('sauce');
     expect(list).toMatchInlineSnapshot(`
       SinglyLinkedList {
         "head": LLNode {
