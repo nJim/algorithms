@@ -156,4 +156,34 @@ describe('linkedList', () => {
       "Error: Provided index is too large for linked list."
     );
   });
+
+  // Test the getFirst method.
+  it('can get the first value from the linked list', () => {
+    const list = new SinglyLinkedList();
+
+    // Getting the first value from an empty linked list throws an error
+    expect(() => { list.getFirst(); }).toThrow(
+      "Error: The linked list does not contain any nodes."
+    );
+
+    // Test adding a node to the first position.
+    list.addFirst('extra-cheese');
+    expect(list.getFirst()).toEqual('extra-cheese');
+  });
+
+  // Test the getLast method.
+  it('can get the last value from the linked list', () => {
+    const list = new SinglyLinkedList();
+
+    // Getting the last value from an empty linked list throws an error
+    expect(() => { list.getLast(); }).toThrow(
+      "Error: The linked list does not contain any nodes."
+    );
+
+    // Test adding a node to the first position.
+    list.addFirst('extra-cheese');
+    list.addLast('pepperoni');
+    list.addLast('bacon');
+    expect(list.getLast()).toEqual('bacon');
+  });
 });

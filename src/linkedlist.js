@@ -73,7 +73,7 @@ export class SinglyLinkedList {
     // Iterate through the linked list to arrive at the insertion point.
     for (let i = 0; i < index - 1; i++) {
       if (current.next == null) {
-        // Throw and error if the provided index is larger than the linked list.
+        // Throw an error if the provided index is larger than the linked list.
         throw 'Error: Provided index is too large for linked list.';
       }
       current = current.next;
@@ -83,5 +83,35 @@ export class SinglyLinkedList {
     // Connect new node to the previous part of the linked list.
     current.next = newNode;
     return this.head;
+  }
+
+  /**
+   * Gets the value of the first node in the linked list.
+   *
+   * @return {string|number} The value stored in the head of the linked list.
+   */
+  getFirst() {
+    if (this.head == null) {
+      // Throw an error if the linked list does not contain any nodes.
+      throw 'Error: The linked list does not contain any nodes.';
+    }
+    return this.head.value;
+  }
+
+  /**
+   * Gets the value of the last node in the linked list.
+   *
+   * @return {string|number} The value stored in the tail of the linked list.
+   */
+  getLast() {
+    if (this.head == null) {
+      // Throw an error if the linked list does not contain any nodes.
+      throw 'Error: The linked list does not contain any nodes.';
+    }
+    let current = this.head;
+    while(current.next !== null) {
+      current = current.next;
+    }
+    return current.value;
   }
 }
