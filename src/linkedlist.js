@@ -1,3 +1,6 @@
+/**
+ * A LinkedListNode organizes an entity on the linked list.
+ */
 class LLNode {
   constructor(data, next = null) {
     this.value = data;
@@ -5,8 +8,12 @@ class LLNode {
   }
 }
 
-// Many of these method names align with Java.
-// https://www.geeksforgeeks.org/linked-list-in-java/
+/**
+ * SinglyLinkedList Implementation.
+ *
+ * A linked list is a data structure where the objects are arranged in a linear
+ * order. The order in a linked list is determined by a pointer in each object.
+ */
 export class SinglyLinkedList {
   constructor() {
     this.head = null;
