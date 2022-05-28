@@ -173,15 +173,25 @@ export class SinglyLinkedList {
     }
     let current = this.head;
     let index = 0;
-    do {
+    while(current !== null) {
       if (current.value == data) {
         // Return the index if the value is found.
         return index;
       }
       index++;
       current = current.next;
-    } while(current.next !== null);
+    }
     // Return null if the value is not found in the linked list.
     return null;
+  }
+
+  /**
+   * Determine if a linked list contains a given value.
+   *
+   * @param {string|number} data A value to search for in the linked list.
+   * @return {boolean} True if the value exists otherwise false.
+   */
+  contains(data) {
+    return this.find(data) ? true : false;
   }
 }

@@ -223,8 +223,8 @@ describe('linkedList', () => {
     `);
   });
 
-  // Test the clear method.
-  it('can find the index of the first notde matching a given value', () => {
+  // Test if a value can be found in a linked list.
+  it('can find the index of the first node matching a given value', () => {
     const list = new SinglyLinkedList();
 
     // Test that we can not find a value on an empty linked list.
@@ -240,4 +240,20 @@ describe('linkedList', () => {
     // Test that we can not find a value if it is not present.
     expect(list.find('z')).toEqual(null);
   });
+
+  // Test if a linked list contains a value.
+  it('can determine if a linked list contains a given value', () => {
+    const list = new SinglyLinkedList();
+
+    // Test that we can not find a value on an empty linked list.
+    expect(list.contains('a')).toEqual(false);
+
+    list.addLast('a');
+    list.addLast('b');
+    // Test that the method returns true if the value exists.
+    expect(list.contains('b')).toEqual(true);
+
+    // Test that the method returns false if the value does not exist.
+    expect(list.contains('d')).toEqual(false);
+  })
 });
