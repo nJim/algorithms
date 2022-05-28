@@ -136,4 +136,27 @@ export class SinglyLinkedList {
     }
     return current;
   }
+
+  /**
+   * Delete all nodes from the linked list.
+   *
+   * @return {null} The value of the linked list head.
+   */
+  clear() {
+    if (this.head == null) {
+      // Exit early if the linked list is already empty.
+      return this.head;
+    }
+    let current = this.head;
+    while(current.next !== null) {
+      let temp = current.next;
+      current.value = undefined;
+      current.next = undefined;
+      delete current.value;
+      delete current.next;
+      current = temp;
+    }
+    this.head = null;
+    return this.head;
+  }
 }

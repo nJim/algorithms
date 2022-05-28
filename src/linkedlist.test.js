@@ -207,4 +207,19 @@ describe('linkedList', () => {
       "Error: A node does not exist at the given index."
     );
   });
+
+  // Test the clear method.
+  it('can clear all nodes from the linked list', () => {
+    const list = new SinglyLinkedList();
+
+    // Test adding a node to the first position.
+    list.addLast('pepperoni');
+    list.addLast('bacon');
+    list.clear();
+    expect(list).toMatchInlineSnapshot(`
+      SinglyLinkedList {
+        "head": null,
+      }
+    `);
+  });
 });
