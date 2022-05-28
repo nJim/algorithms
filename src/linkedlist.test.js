@@ -222,4 +222,22 @@ describe('linkedList', () => {
       }
     `);
   });
+
+  // Test the clear method.
+  it('can find the index of the first notde matching a given value', () => {
+    const list = new SinglyLinkedList();
+
+    // Test that we can not find a value on an empty linked list.
+    expect(list.find('a')).toEqual(null);
+
+    list.addLast('a');
+    list.addLast('b');
+    list.addLast('c');
+    list.addLast('d');
+    // Test that we can get the index if the value exists.
+    expect(list.find('c')).toEqual(2);
+
+    // Test that we can not find a value if it is not present.
+    expect(list.find('z')).toEqual(null);
+  });
 });

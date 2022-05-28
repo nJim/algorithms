@@ -159,4 +159,29 @@ export class SinglyLinkedList {
     this.head = null;
     return this.head;
   }
+
+  /**
+   * Adds a node to the linked list at a specific position by index.
+   *
+   * @param {string|number} data A value to search for in the linked list.
+   * @return {number|null} The index of the first matching node or null.
+   */
+   find(data) {
+    if (this.head == null) {
+      // Return null of the linked list is empty.
+      return null;
+    }
+    let current = this.head;
+    let index = 0;
+    do {
+      if (current.value == data) {
+        // Return the index if the value is found.
+        return index;
+      }
+      index++;
+      current = current.next;
+    } while(current.next !== null);
+    // Return null if the value is not found in the linked list.
+    return null;
+  }
 }
