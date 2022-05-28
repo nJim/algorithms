@@ -201,4 +201,23 @@ export class SinglyLinkedList {
   contains(data) {
     return this.find(data) ? true : false;
   }
+
+  delete(index) {
+    if (this.head == null) {
+      // Exit early if the linked list is already empty.
+      return this.head;
+    }
+    let current = this.head;
+    let previous = null;
+    for (let i=0; i < index; i++) {
+      if (current.next == null) {
+        // Throw an error if trying to get a value from an invalid index.
+        throw 'Error: A node does not exist at the given index.';
+      }
+      previous = current;
+      current = current.next;
+    }
+    previous.next = current.next;
+    return this.head;
+  }
 }

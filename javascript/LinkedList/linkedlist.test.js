@@ -256,4 +256,28 @@ describe('linkedList', () => {
     // Test that the method returns false if the value does not exist.
     expect(list.contains('d')).toEqual(false);
   })
+
+  // Test if a linked list contains a value.
+  it('can delete a node at a given index', () => {
+    const list = new SinglyLinkedList();
+
+    // Test that we can not find a value on an empty linked list.
+    // expect(list.contains('a')).toEqual(false);
+
+    list.addLast('a');
+    list.addLast('b');
+    list.addLast('c');
+    list.delete(1);
+    expect(list).toMatchInlineSnapshot(`
+      SinglyLinkedList {
+        "head": LLNode {
+          "next": LLNode {
+            "next": null,
+            "value": "c",
+          },
+          "value": "a",
+        },
+      }
+    `);
+  })
 });
